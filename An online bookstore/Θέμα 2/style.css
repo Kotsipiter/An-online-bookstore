@@ -1,0 +1,147 @@
+* {
+    display: block;
+}
+
+/* author_list {    
+    margin-left: 50px;
+}
+
+author {
+    margin: 10px 0 10px 0;
+}
+
+author:after {
+    content: attr(author_name);    
+} */
+
+name {
+    font-weight: bold;
+    text-align: center;
+    margin: 50px 0 50px 0;
+    color: rgb(110, 51, 107);
+    font-size: 24px;
+}
+
+Book_categories, Book_secondary_categories {
+    display: none;
+}
+
+online_bookshop {
+    background: #f8f8f8;
+}
+
+book_list {
+    background: rgb(253, 251, 246);
+    border: 1px solid rgb(221, 221, 221);
+    padding: 40px;
+    margin: 50px;    
+    display: flex;
+    flex-direction: column;
+    border-radius: 3px;
+}
+
+book {
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgb(221, 221, 221);    
+}
+
+book > * {
+    margin-top: 25px;
+    margin-bottom: 25px;    
+}
+
+book_titles_info {    
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+book [title]::after {
+    content: attr(title);    
+}
+
+book [publisher_year]::after {
+    content: attr(publisher_year);    
+}
+
+book authors::before {
+    content: attr(author_id);
+    display: block;
+}
+
+book > :nth-child(2)::before {
+    content: "Συγγραφέας";
+    color: rgb(170, 170, 170); 
+}
+
+book > :nth-child(3)::before {
+    content: "ISBN";
+    color: rgb(170, 170, 170); 
+    display: block;    
+}
+
+book > :nth-child(4)::before {
+    content: "Περιγραφή";
+    color: rgb(170, 170, 170); 
+}
+
+book > :nth-child(5)::before {
+    content: "Διαστάσεις";
+    color: rgb(170, 170, 170); 
+}
+
+book_characteristics > :nth-child(2)::before {
+    content: "Εκδότης";
+    color: rgb(170, 170, 170); 
+    display: block;
+    margin-top: 25px;
+}
+
+book_characteristics > :nth-child(3)::before {
+    content: "Σελίδες";
+    color: rgb(170, 170, 170); 
+    display: block;
+    margin-top: 25px;
+}
+
+book_characteristics > :nth-child(4)::before {
+    content: "Γλώσσα";
+    color: rgb(170, 170, 170); 
+    display: block;
+    margin-top: 25px;
+}
+
+cost_information > :nth-child(1)::before {
+    content: "Αρχική τιμή";
+    color: rgb(170, 170, 170); 
+    display: block;
+}
+
+cost_information > :nth-child(2)::before {
+    content: "Τελική τιμή";
+    color: rgb(170, 170, 170); 
+    display: block;
+    margin-top: 25px;
+}
+
+book > :nth-child(7)::before {
+    content: "Διαθεσιμότητα";
+    color: rgb(170, 170, 170); 
+}
+
+book_descr {
+    /* max-width: 60vw; */
+}
+
+contact_details {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgb(70, 70, 70);
+    color: white;
+}
+
+contact_details > * {
+    margin: 0 25px 0 25px;
+}

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Provider">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="programmes">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="programme">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="programme_name">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="programme_cat" type="xs:string" use="required" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="mobilecat">
+                      <xs:complexType>
+                        <xs:attribute name="cat" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="packets">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="mobilepackets">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="mobilepacket">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="mdata" type="xs:string" />
+                                      <xs:element name="mobilecalls" type="xs:unsignedShort" />
+                                      <xs:element name="phonecalls" type="xs:unsignedByte" />
+                                      <xs:element name="GeneralMinutes" type="xs:unsignedShort" />
+                                      <xs:element name="MInternationalCalls" type="xs:unsignedByte" />
+                                      <xs:element name="SameProviderMessages" type="xs:unsignedByte" />
+                                      <xs:element name="NationalMessages" type="xs:unsignedByte" />
+                                      <xs:element name="InternationalMessages" type="xs:unsignedByte" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="ContractDuration" type="xs:unsignedByte" />
+                    <xs:element name="availability">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="SIMAvailability">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Price" type="xs:unsignedByte" />
+                              </xs:sequence>
+                              <xs:attribute name="Free" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="benefits">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="benefit" type="xs:string" />
+                        </xs:sequence>
+                        <xs:attribute name="QuantityOfBenefits" type="xs:unsignedByte" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="prices">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="price">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="value" type="xs:unsignedByte" />
+                              </xs:sequence>
+                              <xs:attribute name="category" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Fees">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ActivationFees" type="xs:unsignedByte" />
+                          <xs:element name="InstallationFees" type="xs:unsignedByte" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="programme_id" type="xs:unsignedByte" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="offerslist">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="offer">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Gifts" />
+                    <xs:element name="OfferDuration">
+                      <xs:complexType>
+                        <xs:attribute name="duration" type="xs:unsignedByte" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="ContractDuration" type="xs:unsignedByte" />
+                  </xs:sequence>
+                  <xs:attribute name="programme_id" type="xs:unsignedByte" use="required" />
+                  <xs:attribute name="price" type="xs:unsignedByte" use="required" />
+                  <xs:attribute name="VAT" type="xs:unsignedByte" use="required" />
+                  <xs:attribute name="CustomerCategory" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="provider_name" type="xs:string" use="required" />
+      <xs:attribute name="foundingyear" type="xs:unsignedShort" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!-- ayto prepei na legetai online bookshop.dtd-->
+<!DOCTYPE online_bookshop [
+<!ELEMENT online_bookshop (name,author_list,Book_categories,Book_secondary_categories,book_list,contact_details)>
+<!ATTLIST online_bookshop free_ship CDATA #IMPLIED>
+
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT author_list (author+)>
+<!ELEMENT author EMPTY>
+<!ATTLIST author auid CDATA #REQUIRED>
+<!ATTLIST author author_name CDATA #REQUIRED>
+
+<!ELEMENT Book_categories (book_category*)>
+<!ELEMENT book_category (#PCDATA)>
+<!ATTLIST book_category category_id CDATA #REQUIRED>
+
+<!ELEMENT Book_secondary_categories (secondary_category*)>
+<!ELEMENT secondary_category (#PCDATA)>
+<!ATTLIST secondary_category sub_cat CDATA #REQUIRED>
+<!ATTLIST secondary_category category CDATA #REQUIRED>
+<!-- Tsekarete pali-->
+
+<!ELEMENT book_list (book+)>
+<!ELEMENT book (title,subtitle?,authors,ISBN,book_descr,book_characteristics,cost_information,other_information, vote*)>
+<!ATTLIST book book_id CDATA #REQUIRED> 
+<!ATTLIST book category CDATA #REQUIRED>
+<!ATTLIST book best_seller (yes | no) #IMPLIED>
+<!ATTLIST book book_award ( ΜεγάλοΒραβείο_Κρητικής  | Κρατικό_Βραβείο_Διηγήματος-Νουβέλας | Κρατικό_Βραβείο_Ποίησης | Κρατικό_Βραβείο_Δοκίμιου-Κριτικής | Κρατικό_Βραβείο_πρωτοεμφανιζόμενου_συγγραφέα | Βραβείο_Μαρτυρίας_Bιογραφίας-Χρονικού-ταξιδιωτικής-Λογοτεχνίας) #IMPLIED>
+
+<!ATTLIST book target (customer | educator | both) #REQUIRED>
+
+
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT subtitle (#PCDATA)>
+<!ELEMENT authors (best_seller_author,other_partners?)>
+<!ELEMENT best_seller_author EMPTY>
+<!ATTLIST best_seller_author value ( yes | no ) #REQUIRED>
+<!ATTLIST best_seller_author Specific_Author CDATA #IMPLIED>
+<!ATTLIST authors author_id CDATA #REQUIRED>
+<!ELEMENT other_partners (Illustration?,Translation?)>
+<!ELEMENT Illustration (#PCDATA)>
+<!ELEMENT Translation (#PCDATA)>
+<!ELEMENT ISBN (#PCDATA)>
+
+<!ELEMENT book_descr (description, for_ages?)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT for_ages (#PCDATA)>
+
+<!ELEMENT book_characteristics (dimensions?, publisher, pages, weight?, language)>
+<!ELEMENT dimensions (#PCDATA)>
+<!ATTLIST dimensions unit CDATA #FIXED "cm">
+<!ELEMENT publisher (#PCDATA)>
+<!ATTLIST publisher publisher_year CDATA #REQUIRED>
+<!ATTLIST publisher publishing_country CDATA #IMPLIED>
+
+<!ELEMENT pages (#PCDATA)>
+<!ELEMENT weight (#PCDATA)>
+<!ATTLIST weight w_unit (gr | pounds) "gr">
+
+<!ELEMENT language (#PCDATA)>
+
+<!ELEMENT cost_information (start_value+, end_value+)>
+<!ELEMENT start_value (#PCDATA)>
+<!ELEMENT end_value (#PCDATA)>
+
+<!ATTLIST start_value currency CDATA "euro">
+<!ATTLIST end_value currency CDATA "euro">
+<!ATTLIST end_value percent_of_discount CDATA #IMPLIED>
+<!ATTLIST end_value with_discount (yes | no) "no">
+<!ELEMENT other_information (diathesimotita)>
+<!ELEMENT diathesimotita (#PCDATA)>
+<!ATTLIST diathesimotita apostoli_se CDATA #IMPLIED >
+
+<!ELEMENT contact_details (address, tel*, email*) >
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT tel (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+
+<!-- Vote -->
+<!ELEMENT vote EMPTY>
+<!ATTLIST vote username CDATA #REQUIRED > 
+<!ATTLIST vote number ( 1 | 2 | 3 | 4 | 5) #REQUIRED>
+<!ATTLIST vote comment CDATA #IMPLIED>
+
+]>

@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<!DOCTYPE Provider [
+<!ELEMENT Provider ( programmes, offerslist*)>
+
+<!ATTLIST Provider provider_name CDATA #REQUIRED>
+<!ATTLIST Provider foundingyear CDATA #REQUIRED>
+<!ELEMENT programmes (programme+) >
+<!ELEMENT programme (programme_name, mobilecat?, phonecat?, packets, ContractDuration, availability?, benefits, prices, Fees?)> <!-- ονομα, κινητο, σταθερο, πακετο, διαρκεια --> 
+<!ATTLIST programme programme_id CDATA #REQUIRED> <!-- id κουκκιδα 5 --> 
+<!ELEMENT availability (SIMAvailability | RouterAvailability | DecoderAvailability) > <!-- κουκκιδα 6 υποκουκκιδα 6 πρεπει να εχει κατι μπροστα το SIMAvailability για να ειναι μεταβλητη--> 
+<!ELEMENT programme_name (#PCDATA)>
+<!ATTLIST programme_name programme_cat ( mobile | home_teleph_and_internet | TV )  "mobile">
+
+<!ELEMENT mobilecat EMPTY>
+<!ATTLIST mobilecat cat ( Mobile | Contract | PayAsYouGo ) #REQUIRED>
+
+<!ELEMENT phonecat EMPTY>
+<!ATTLIST phonecat cat ( GigaFiber | VDSL | ADSL ) #REQUIRED>
+
+
+<!--   Packets   -->
+<!ELEMENT packets (mobilepackets? | phonepackets?)> <!-- koitame an ginetai ayto epidh thelw ena apo ta 2 -->
+<!ELEMENT mobilepackets (mobilepacket+)>
+<!ELEMENT mobilepacket ( mdata?, mobilecalls?, phonecalls?, GeneralMinutes?, MInternationalCalls?, SameProviderMessages?, NationalMessages?, InternationalMessages?)>
+<!ELEMENT mdata (#PCDATA)>
+<!ELEMENT mobilecalls (#PCDATA)>
+<!ELEMENT phonecalls (#PCDATA)>
+<!ELEMENT GeneralMinutes (#PCDATA)>
+<!ELEMENT SameProviderMessages (#PCDATA)>
+<!ELEMENT NationalMessages (#PCDATA)>
+<!ELEMENT InternationalMessages (#PCDATA)>
+<!ELEMENT MInternationalCalls (#PCDATA)>
+
+<!ELEMENT phonepackets (phonepacket+)>
+<!ELEMENT phonepacket (data?, PCMinutes?,  MCMinutes?, InternationalCalls?, Channels?, InternetSpeed? )>
+<!ELEMENT pdata (CDATA)>
+<!ELEMENT PCMinutes (CDATA)>
+<!ELEMENT MCMinutes (CDATA)> 
+<!ELEMENT Channels (KidsChannel, SportsChannel, Library) >
+<!ATTLIST Channels Quantity (CDATA) #REQUIRED  >                        
+<!ELEMENT KidsChannel (CDATA) >
+<!ATTLIST KidsChannel Availability ( yes | no ) #REQUIRED >
+<!ELEMENT SportsChannel (CDATA)  >
+<!ATTLIST SportsChannel Availability ( yes | no ) #REQUIRED >  
+<!ELEMENT Library (CDATA) >
+<!ATTLIST Library Availability ( yes | no ) "no" >  
+
+<!ELEMENT InternetSpeed (CDATA) >
+<!ELEMENT PInternationalCalls (CallMinutes,Country+)>
+<!ELEMENT CallMinutes (CDATA) >
+<!ELEMENT Country (Name, Type) >
+<!ELEMENT Name (CDATA) >
+<!ATTLIST Country Type ( Mobile | Phone | Both)  "Phone" >
+
+
+
+<!-- Contract Duration -->
+<!ELEMENT ContractDuration (#PCDATA)>
+
+
+<!-- Benefits -->
+<!ELEMENT benefits (benefit*)>
+<!ATTLIST benefits QuantityOfBenefits CDATA #REQUIRED  >
+<!ELEMENT benefit (#PCDATA) >
+
+
+<!-- Fees -->
+<!ELEMENT Fees (ActivationFees?,InstallationFees?)>
+<!ELEMENT ActivationFees (#PCDATA)>
+<!ELEMENT InstallationFees (#PCDATA)>
+
+
+<!-- Availability -->
+<!ELEMENT SIMAvailability (Price) >
+<!ATTLIST SIMAvailability Free (yes | no) "no">
+<!ELEMENT Price (#PCDATA) >
+
+<!ELEMENT RouterAvailability (CDATA) >
+<!ATTLIST RouterAvailability RouterPrice CDATA #REQUIRED >
+
+
+<!ELEMENT DecoderAvailability (CDATA)>
+<!ATTLIST DecoderAvailability DecoderPrice CDATA #REQUIRED>
+
+<!-- Prices -->
+<!ELEMENT prices (price*)>
+<!ELEMENT price (value)>
+<!ELEMENT value (#PCDATA)>
+<!ATTLIST price category CDATA #REQUIRED>
+
+<!-- Offerlist -->
+<!ELEMENT offerslist (offer*)> 
+<!ELEMENT offer (Gifts*, OfferDuration, OfferContractDuration)> 
+<!ATTLIST offer programme_id CDATA #REQUIRED>
+<!ATTLIST offer price CDATA #REQUIRED>
+<!ATTLIST offer VAT CDATA #REQUIRED>             
+<!ATTLIST offer CustomerCategory CDATA #REQUIRED>
+<!ELEMENT Gifts (#PCDATA) >
+<!ATTLIST Gifts category CDATA #IMPLIED>
+<!ELEMENT OfferDuration EMPTY >
+<!ATTLIST OfferDuration duration CDATA #REQUIRED>
+<!ELEMENT OfferContractDuration (#PCDATA)>
+]>
+
+<!-- Edw arxizei to XML-->
+<Provider provider_name="THLELE PAROXE" foundingyear="2000">
+    <programmes>
+        <programme programme_id="1">
+            <programme_name programme_cat="mobile"> Mobile Turbo </programme_name>
+            <mobilecat cat="Mobile"></mobilecat>
+            <packets>
+                <mobilepackets>
+                    <mobilepacket>
+                        <mdata> 15 GB</mdata>
+                        <mobilecalls>1000</mobilecalls>
+                        <phonecalls>250</phonecalls>
+                        <GeneralMinutes>500</GeneralMinutes>
+                        <MInternationalCalls>100</MInternationalCalls>
+                        <SameProviderMessages>200</SameProviderMessages>
+                        <NationalMessages>0</NationalMessages>
+                        <InternationalMessages>0</InternationalMessages>
+                    </mobilepacket>
+                </mobilepackets>
+            </packets>
+            <ContractDuration>24</ContractDuration>
+            <availability>
+                <SIMAvailability Free="no">
+                    <Price>15</Price>
+                </SIMAvailability>
+            </availability>
+            <benefits QuantityOfBenefits="1">
+                <benefit>aperiorista gb gia mia vdomada</benefit>
+            </benefits>
+            <prices>
+                <price category="NewCustomer">
+                    <value>10</value>
+                </price>
+            </prices>
+            <Fees>
+                <ActivationFees>10</ActivationFees>
+                <InstallationFees>0</InstallationFees>
+            </Fees>
+        </programme>
+    </programmes>
+    <offerslist>
+        <offer programme_id="1" price="10" VAT="24" CustomerCategory="NewCustomer" >
+            <Gifts></Gifts>
+            <OfferDuration duration="12"></OfferDuration>
+            <OfferContractDuration>12</OfferContractDuration>
+        </offer>
+    </offerslist>     
+</Provider>
